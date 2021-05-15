@@ -16,7 +16,8 @@ streets.addTo(map);
 
 // Add GeoJSON data.
 let sanFranAirport =
-{"type":"FeatureCollection","features":[{
+{"type":"FeatureCollection",
+  "features":[{
     "type":"Feature",
     "properties":{
         "id":"3469",
@@ -31,8 +32,15 @@ let sanFranAirport =
         "tz":"America/Los_Angeles"},
         "geometry":{
             "type":"Point",
-            "coordinates":[-122.375,37.61899948120117]}}
+            "coordinates":[-122.375,37.61899948120117]}
+    }
 ]};
 
 // Grabbing our GeoJSON data.
-L.geoJSON(sanFranAirport).addTo(map);
+//L.geoJSON(sanFranAirport).addTo(map);
+L.geoJSON(sanFranAirport, {
+  pointToLayer: function(feature, latlng) {
+    console.log(feature);
+    return L.marker(latlng);
+  }
+}).addTo(map);
