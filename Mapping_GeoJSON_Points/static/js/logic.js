@@ -26,7 +26,7 @@ let map = L.map('mapid', {
     center: [30, 30],
     zoom: 2,
     layers: [streets]
-})
+});
 
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
